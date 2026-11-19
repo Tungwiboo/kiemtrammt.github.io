@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Kiểm Tra Trắc Nghiệm - Mạng Máy Tính</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function play() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+
+        function pic() {
+            document.getElementById("theimg").style.display = "block";
+            document.getElementById("main").style.display = "none";
+            document.body.style.background = "black";
+            document.body.style.overflow = "hidden";
+        }
+
+        function refresh() {
+            document.getElementById("refresh").style.display = "block";
+        }
+
+        function fullscreen() {
+            var fs = document.documentElement;
+            if (fs.requestFullscreen) {
+                fs.requestFullscreen();
+            } else if (fs.mozRequestFullScreen) {
+                fs.mozRequestFullScreen();
+            } else if (fs.webkitRequestFullscreen) {
+                fs.webkitRequestFullscreen();
+            }
+        }
+
+        function startExam() {
+            play();
+            setTimeout(pic, 360);
+            setTimeout(fullscreen, 360);
+            setTimeout(refresh, 3000);
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Phần hiển thị ảnh khi kích hoạt -->
+    <div id="theimg" style="display: none;">
+        <img src="scare.jpg" alt="scare">
+    </div>
+
+    <!-- Giao diện bài kiểm tra -->
+    <div id="main">
+        <header class="navbar">
+            <div class="nav-content">
+                <span class="logo">HỆ THỐNG KIỂM TRA TRỰC TUYẾN (LMS)</span>
+                <span class="status-badge">Đang mở</span>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="exam-card">
+                <div class="exam-header">
+                    <span class="course-tag">HỌC PHẦN: MẠNG MÁY TÍNH</span>
+                    <h1>Bài Tập Kiểm Tra Định Kỳ</h1>
+                    <p class="subtitle">Chủ đề: Tổng quan mạng máy tính, Mô hình OSI/TCP-IP & Chia địa chỉ IP</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="info-label">Số lượng câu hỏi</span>
+                        <span class="info-value">22 câu</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Thời gian làm bài</span>
+                        <span class="info-value">40 phút</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Hình thức</span>
+                        <span class="info-value">Trắc nghiệm</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Số lần làm bài</span>
+                        <span class="info-value">1 lần duy nhất</span>
+                    </div>
+                </div>
+
+                <div class="rules-box">
+                    <h3>Quy định làm bài:</h3>
+                    <ul>
+                        <li>Thời gian <strong>40 phút</strong> sẽ bắt đầu đếm ngược ngay khi bạn nhấn nút <em>"Bắt đầu làm bài"</em>.</li>
+                        <li>Hệ thống sẽ tự động chuyển sang chế độ <strong>toàn màn hình</strong> để đảm bảo tính công bằng.</li>
+                        <li>Không thoát toàn màn hình hoặc chuyển tab trình duyệt trong quá trình làm bài.</li>
+                        <li>Bài làm sẽ tự động nộp khi hết thời gian quy định.</li>
+                    </ul>
+                </div>
+
+                <div class="student-form">
+                    <div class="input-group">
+                        <label for="student-name">Họ và tên sinh viên</label>
+                        <input type="text" id="student-name" placeholder="Nhập họ và tên của bạn...">
+                    </div>
+                    <div class="input-group">
+                        <label for="student-id">Mã sinh viên / Lớp</label>
+                        <input type="text" id="student-id" placeholder="VD: 24810310xxx - D20CNPM...">
+                    </div>
+                </div>
+
+                <div id="click">
+                    <button type="button" class="btn-start" onclick="startExam()">Bắt đầu làm bài</button>
+                </div>
+            </div>
+        </div>
+
+        <audio id="audio" src="scream2.mp3"></audio>
+
+        <footer class="bot">
+            <p>© 2026 Cổng Đào Tạo Trực Tuyến - Khoa Công Nghệ Thông Tin</p>
+        </footer>
+    </div>
+
+    <!-- Thông báo sau 3 giây -->
+    <div class="refresh-overlay" id="refresh" style="display: none;">
+        <p><b>༼ ͡° ͜ʖ ͡° ༽<br>Tải lại trang (F5) để làm lại</b></p>
+    </div>
+
+</body>
+</html>
